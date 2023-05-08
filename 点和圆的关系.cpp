@@ -5,93 +5,45 @@
 
 using namespace std;
 
-//µãÀà
-class Point
-{
-public:
-	void setX(int x)								//ÉèÖÃx×ø±ê
-	{
-		m_x = x;
-	}
-	int getX()											//»ñÈ¡x×ø±ê
-	{
-		return m_x;
-	}
-	void SetY(int y)								//ÉèÖÃy×ø±ê
-	{
-		m_y = y;
-	}
-	int getY()											//»ñÈ¡y×ø±ê
-	{
-		return m_y;
-	}
-private:
-	int m_x;
-	int m_y;
-};
 
-//Ô²Àà
-class Circle
-{
-public:
-	void setR(int r)										//ÉèÖÃ°ë¾¶
-	{
-		m_r = r;
-	}
-	int getR()												//»ñÈ¡°ë¾¶
-	{
-		return m_r;
-	}
-	void setCenter(Point center)				//ÉèÖÃÔ²ĞÄ
-	{
-		m_center = center;
-	}
-	Point getCenter()									//»ñÈ¡Ô²ĞÄ
-	{
-		return m_center;
-	}
-private:
-	int m_r;
-	Point m_center;									//ºËĞÄ£¬ÈÃÁíÒ»¸öÀà×÷Îª±¾ÀàµÄ³ÉÔ±
-};
 
-//ÅĞ¶ÏµãºÍÔ²µÄ¹ØÏµ
+//åˆ¤æ–­ç‚¹å’Œåœ†çš„å…³ç³»
 void isInCircle(Circle& c, Point& p)
 {
-	//µãµ½Ô²ĞÄ¾àÀëµÄÆ½·½
+	//ç‚¹åˆ°åœ†å¿ƒè·ç¦»çš„å¹³æ–¹
 	int distance = (c.getCenter().getX() - p.getX()) * (c.getCenter().getX() - p.getX()) + (c.getCenter().getY() - p.getY()) * (c.getCenter().getY() - p.getY());
-	//°ë¾¶µÄÆ½·½
+	//åŠå¾„çš„å¹³æ–¹
 	int Rdistance = c.getR() * c.getR();
 	if (distance == Rdistance)
 	{
-		cout << "µãÔÚÔ²ÉÏ" << endl;
+		cout << "ç‚¹åœ¨åœ†ä¸Š" << endl;
 	}
 	else if (distance > Rdistance)
 	{
-		cout << "µãÔÚÔ²Íâ" << endl;
+		cout << "ç‚¹åœ¨åœ†å¤–" << endl;
 	}
 	else
 	{
-		cout << "µãÔÚÔ²ÄÚ" << endl;
+		cout << "ç‚¹åœ¨åœ†å†…" << endl;
 	}
 }
 
 int main()
 {
-	//´´½¨Ô²
+	//åˆ›å»ºåœ†
 	Circle c;
 	c.setR(10);
-	Point center;			//´´½¨Ô²ĞÄ
+	Point center;			//åˆ›å»ºåœ†å¿ƒ
 	center.setX(10);
 	center.SetY(0);
 	c.setCenter(center);
 
-	//´´½¨µã
+	//åˆ›å»ºç‚¹
 	Point p;
 	p.setX(10);
 	p.SetY(10);
 
-	//ÅĞ¶Ï¹ØÏµ
+	//åˆ¤æ–­å…³ç³»
 	isInCircle(c, p);
 
 	system("pause");
